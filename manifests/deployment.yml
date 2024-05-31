@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: userservices 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userservices
+  template:
+    metadata:
+      labels:
+        app: userservices 
+    spec:
+      containers:
+        - name: userservices 
+          image: teamacr2.azurecr.io/userservices
+          ports:
+          - containerPort: 8081
